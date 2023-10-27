@@ -3,5 +3,5 @@ from recipes.views import my_view
 
 
 urlpatterns = [
-    path('sobre/', my_view)
+    path('', my_view)
 ]
