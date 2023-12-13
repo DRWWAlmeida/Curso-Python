@@ -2,22 +2,19 @@ from django.test import TestCase
 from recipes.models import Recipe, Category, User
 
 
-
 class RecipeTestBase(TestCase):
     def setUp(self) -> None:
-        #category = self.make_category()
-        #author = self.make_author()
-        #self.make_recipe()
+        # category = self.make_category()
+        # author = self.make_author()
+        # self.make_recipe()
         return super().setUp()
-    
 
     def tearDown(self) -> None:
         return super().tearDown()
-    
+
     def make_category(self, name='categoria'):
         return Category.objects.create(name=name)
-    
-    
+
     def make_author(
             self,
             first_name='User',
@@ -25,7 +22,7 @@ class RecipeTestBase(TestCase):
             username='username',
             password='123456',
             email='username@email.com',
-            ):
+    ):
         return User.objects.create_user(
             first_name=first_name,
             last_name=last_name,
@@ -33,7 +30,7 @@ class RecipeTestBase(TestCase):
             password=password,
             email=email,
         )
-    
+
     def make_recipe(
             self,
             title="Recipe Title",
@@ -48,7 +45,7 @@ class RecipeTestBase(TestCase):
             is_published=True,
             category_data=None,
             author_data=None,
-            ):
+    ):
         if category_data is None:
             category_data = {}
         if author_data is None:
@@ -68,6 +65,3 @@ class RecipeTestBase(TestCase):
             category=self.make_category(**category_data),
             author=self.make_author(**author_data)
         )
-
-
-    
